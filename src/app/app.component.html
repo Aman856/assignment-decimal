@@ -10,14 +10,13 @@
       <hr class="hr-m">
       <div class="row">
         <div class="col-6 col-md-6 col-lg-6 col-xl-6 col-sm-6 col-xs-6" *ngFor="let y of years">
-          <button  type="button"
-            class="btn m-t-5 col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-5">{{y}}</button>
+          <button type="button" class="btn m-t-5 col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-5">{{y}}</button>
         </div>
       </div>
 
-     
 
-     
+
+
 
 
     </div>
@@ -25,28 +24,24 @@
   <ng-container *ngIf="data?.length!=0">
     <div class="content-main">
       <div class="row-c">
-        <div class="col" *ngFor="let item of data">
+
+        <!--Use loop here-->
+        <div class="col">
           <div class="text-center image-div">
-            <img rel="preload" alt="" src="{{item.links.mission_patch_small}}" class="image">
+            <img rel="preload" alt="" src="{{data[0].links.mission_patch_small}}" class="image">
           </div>
           <div>
-            <span class="mission-color"><b>{{item.mission_name}} #{{item.flight_number}}</b></span> <br>
-            <ng-container *ngIf="item.mission_id.length>0">
-              <b>Mission IDs:</b>
-              <ul>
-                <li class="res-color" *ngFor="let elem of item.mission_id">{{elem}}</li>
-              </ul>
-            </ng-container>
+            <span class="mission-color"><b>{{data[0].mission_name}} #{{data[0].flight_number}}</b></span> <br>
+           
             <span class="year-color"><strong>Launch Year:</strong></span> <span
-              class="res-color">{{item.launch_year}}</span><br>
-            <span><strong>Successfull Launch:</strong></span> <span class="res-color">{{item.launch_success}}</span><br>
-            <span
-              *ngIf="item.launch_success&&item.rocket.first_stage.cores[item.rocket.first_stage.cores.length-1].land_success!=null"><strong>Successfull
-                Landing:</strong></span>
-            {{item.rocket.first_stage.cores[item.rocket.first_stage.cores.length-1].land_success}} <span
-              class="res-color"></span>
+              class="res-color">{{data[0].launch_year}}</span><br>
+            <span><strong>Successfull Launch:</strong></span> <span
+              class="res-color">{{data[0].launch_success}}</span><br>
+          
           </div>
         </div>
+
+
       </div>
     </div>
   </ng-container>
@@ -64,7 +59,7 @@
       </div>
     </div>
   </div>
- 
 
-  
+
+
 </div>
